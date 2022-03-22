@@ -1,0 +1,63 @@
+/* .container {
+    
+} */
+
+.wrapper_forecast {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.box_forecast {
+    width: 140px;
+    height: 160px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box_forecast.current {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.box_forecast>h4 {
+    color: var(--black-color);
+    font-weight: 600;
+}
+
+.box_forecast.current>h4 {
+    color: var(--white-color);
+}
+
+.box_forecast>.icon {
+    font-size: 4rem;
+}
+
+.humidity {
+    text-align: center;
+}
+
+.humidity>p {
+    color: #9E9E9E;  
+}
+
+.box_forecast.current .humidity>p {
+    color: var(--white-color);
+}
+
+.humidity>span {
+    display: block;
+    margin-top: 10px;
+}
+
+.wrapper_chart {
+    width: 100%;
+    
+}
