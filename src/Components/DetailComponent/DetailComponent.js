@@ -7,7 +7,6 @@ import styles from './DetailComponent.module.css';
 import Select from './Select';
 
 function DetailComponent() {
-
     return (
         <div className={clsx(
             styles.container

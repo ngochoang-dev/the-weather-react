@@ -1,16 +1,45 @@
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import clsx from 'clsx';
+import dayjs from 'dayjs'
 import { IconContext } from 'react-icons';
 import { WiCloudy } from 'react-icons/wi';
+import { useSelector, useDispatch } from 'react-redux';
 import styles from './MainComponent.module.css';
 import LineChart from './LineChart';
+import { getAllForecast } from '../../redux/actions';
 
 function MainComponent() {
+    const dispatch = useDispatch()
+    const allForecast = useSelector(state => state.getAllForecast);
+
+    const humidityArr = useMemo(() => {
+        return allForecast.map(item => {
+            return item.humidity
+        })
+    }, [allForecast]);
+
+    const dateArr = useMemo(() => {
+        return allForecast.map(item => {
+            return item.date
+        })
+    }, [allForecast]);
+
+    console.log(dateArr);
+
+
+    useEffect(() => {
+        dispatch(getAllForecast())
+    }, [dispatch]);
+
+
     return (
         <div className={clsx(
             styles.container
         )}>
-            <LineChart />
+            <h4 className={styles.header}>Temperature</h4>
+            <LineChart
+                humidityArr={humidityArr}
+            />
             <div className={clsx(
                 styles.wrapper_forecast
             )}>
