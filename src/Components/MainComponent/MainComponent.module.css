@@ -18,6 +18,7 @@
 }
 
 .box_forecast {
+    cursor: pointer;
     position: relative;
     width: 140px;
     height: 160px;
@@ -52,7 +53,7 @@
     color: var(--white-color);
 }
 
-.box_forecast>.icon {
+.box_forecast>span>.icon {
     font-size: 4rem;
 }
 

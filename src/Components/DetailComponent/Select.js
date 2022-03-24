@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import styles from './DetailComponent.module.css';
 import useClickOutSide from '../../customHook/useClickOutSide';
 
+
 const selectArr = [
     {
         id: 1,
@@ -21,14 +22,10 @@ const selectArr = [
     }
 ]
 
-function Select() {
+function Select({ cityId, cityName, setIdOfCity }) {
     const selectRef = useRef();
 
     const [showSelect, setShowSelect] = useState(false);
-
-    const handleSelect = (e) => {
-        console.log(e.target.textContent);
-    }
 
     useClickOutSide(e => {
         if (selectRef.current) {
@@ -37,7 +34,6 @@ function Select() {
             }
         }
     })
-
 
     return (
         <div className={clsx(
@@ -58,7 +54,7 @@ function Select() {
                 )}
                     onClick={() => setShowSelect(!showSelect)}
                 >
-                    <span>London</span>
+                    <span>{cityName}</span>
                 </div>
                 {
                     showSelect && (
@@ -70,23 +66,26 @@ function Select() {
                                     return (
                                         <li
                                             key={item.id}
-                                            onClick={(e) => {
+                                            style={
+                                                Number(cityId) === item.id ?
+                                                    { color: '#039BE5' } :
+                                                    {}
+                                            }
+                                            onClick={() => {
                                                 setShowSelect(false)
-                                                handleSelect(e)
+                                                setIdOfCity(item.id)
                                             }}>
                                             {item.name}
                                         </li>
                                     )
                                 })
                             }
-
                         </ul>
                     )
                 }
-
             </div>
         </div>
     )
 }
 
-export default Select
+export default Select;

@@ -61,6 +61,10 @@
     -o-transition: .25s    ;
 }
 
+.active_city {
+    color: var(--primary-color)
+}
+
 .list_city>li:hover {
     background-color: var(--primary-color);
     color: var(--white-color);
@@ -83,7 +87,7 @@
 
 }
 
-.temperature>.icon {
+.temperature>span>.icon {
     font-size: 8rem;
 }
 
